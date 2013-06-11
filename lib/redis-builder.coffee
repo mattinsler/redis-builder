@@ -11,7 +11,7 @@ build = (config = {}) ->
   database = url_config?.path.slice(1) || config.database
   password = url_config?.auth?.password || config.password
   
-  client = redis.createClient(port, host)
+  client = redis.createClient(port, host, config.options)
   client.auth(password) if password?
   
   if database?

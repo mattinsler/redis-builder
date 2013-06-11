@@ -20,7 +20,7 @@
     port = (url_config != null ? url_config.port : void 0) || config.port || 6379;
     database = (url_config != null ? url_config.path.slice(1) : void 0) || config.database;
     password = (url_config != null ? (_ref = url_config.auth) != null ? _ref.password : void 0 : void 0) || config.password;
-    client = redis.createClient(port, host);
+    client = redis.createClient(port, host, config.options);
     if (password != null) {
       client.auth(password);
     }
