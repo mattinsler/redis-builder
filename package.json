@@ -1,7 +1,7 @@
 {
   "name": "redis-builder",
   "description": "Easily create/configure a redis client",
-  "version": "0.8.3.1",
+  "version": "0.8.3-1",
   "homepage": "https://github.com/mattinsler/redis-builder",
   "author": {
     "name": "Matt Insler",
