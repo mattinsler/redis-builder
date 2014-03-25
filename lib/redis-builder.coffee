@@ -1,5 +1,12 @@
-redis = require 'redis'
+path = require 'path'
 betturl = require 'betturl'
+
+try
+  redis = require path.join(process.cwd(), 'node_modules', 'redis')
+catch err
+  console.log '\nYou must npm install redis in order to use redis-builder\n'
+  throw err
+
 
 build = (config = {}) ->
   return config.client if config.client?

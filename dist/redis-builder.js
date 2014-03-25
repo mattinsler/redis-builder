@@ -1,9 +1,17 @@
 (function() {
-  var betturl, build, redis;
+  var betturl, build, err, path, redis;
 
-  redis = require('redis');
+  path = require('path');
 
   betturl = require('betturl');
+
+  try {
+    redis = require(path.join(process.cwd(), 'node_modules', 'redis'));
+  } catch (_error) {
+    err = _error;
+    console.log('\nYou must npm install redis in order to use redis-builder\n');
+    throw err;
+  }
 
   build = function(config) {
     var client, database, host, password, port, url_config, _ref;
