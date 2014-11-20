@@ -1,8 +1,15 @@
 path = require 'path'
 betturl = require 'betturl'
 
+loadModule = (name, lookInPath = process.cwd()) ->
+  try
+    require path.join(lookInPath, 'node_modules', name)
+  catch err
+    throw err if lookInPath is path.sep
+    loadModule(name, path.join(lookInPath, '../'))
+
 try
-  redis = require path.join(process.cwd(), 'node_modules', 'redis')
+  redis = loadModule('redis')
 catch err
   console.log '\nYou must npm install redis in order to use redis-builder\n'
   throw err

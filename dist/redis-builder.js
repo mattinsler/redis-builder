@@ -1,12 +1,28 @@
 (function() {
-  var betturl, build, err, path, redis;
+  var betturl, build, err, loadModule, path, redis;
 
   path = require('path');
 
   betturl = require('betturl');
 
+  loadModule = function(name, lookInPath) {
+    var err;
+    if (lookInPath == null) {
+      lookInPath = process.cwd();
+    }
+    try {
+      return require(path.join(lookInPath, 'node_modules', name));
+    } catch (_error) {
+      err = _error;
+      if (lookInPath === path.sep) {
+        throw err;
+      }
+      return loadModule(name, path.join(lookInPath, '../'));
+    }
+  };
+
   try {
-    redis = require(path.join(process.cwd(), 'node_modules', 'redis'));
+    redis = loadModule('redis');
   } catch (_error) {
     err = _error;
     console.log('\nYou must npm install redis in order to use redis-builder\n');
