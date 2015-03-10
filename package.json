@@ -1,7 +1,7 @@
 {
   "name": "redis-builder",
   "description": "Easily create/configure a redis client",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "homepage": "https://github.com/mattinsler/redis-builder",
   "author": {
     "name": "Matt Insler",
@@ -21,7 +21,7 @@
       "url": "https://github.com/mattinsler/redis-builder/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "dist/redis-builder",
+  "main": "lib/redis-builder",
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -29,9 +29,6 @@
     "betturl": "~0.2.3"
   },
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-coffee": "~0.7.0",
-    "grunt-contrib-clean": "~0.5.0"
   },
-  "keywords": []
+  "keywords": ["redis"]
 }
