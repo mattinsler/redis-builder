@@ -37,6 +37,19 @@ var client = builder({
     detect_buffers: true
   }
 });
+
+// for fun, just parse a redis URL to see what redis-builder is using
+console.log(builder.parseURL('redis://:password@foo.bar.com:88731/4'));
+
+/*
+should print:
+{
+  host: 'foo.bar.com',
+  port: 88731,
+  password: 'password',
+  database: 4
+}
+*/
 ```
 
 ## License
